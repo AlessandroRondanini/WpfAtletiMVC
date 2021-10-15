@@ -29,11 +29,11 @@ namespace WpfAtletiMVC.Views
         private ObservableCollection<Atleta> _atleti;
         public ObservableCollection<Atleta> atleti
         {
-            get 
+            get
             {
                 return _atleti;
             }
-            set 
+            set
             {
                 _atleti = value;
                 onPropertyChanged("atleti");
@@ -56,7 +56,7 @@ namespace WpfAtletiMVC.Views
         public ListaAtletiView()
         {
             InitializeComponent();
-            atleti = new ObservableCollection<Atleta>( model.getAll() );
+            atleti = new ObservableCollection<Atleta>(model.getAll());
             this.DataContext = this;
         }
 
@@ -81,7 +81,11 @@ namespace WpfAtletiMVC.Views
 
         private void Elimina_Click(object sender, RoutedEventArgs e)
         {
-
+            //eliminazione atleta, se non selezionato messagebox di avvertimento
+            if (DTGRA.SelectedItem != null)
+                atleti.Remove((Atleta)DTGRA.SelectedItem);
+            else
+                MessageBox.Show("SELEZIONA UN ATLETA!!!!");
         }
     }
 }

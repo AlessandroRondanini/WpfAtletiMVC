@@ -26,11 +26,11 @@ namespace WpfAtletiMVC.Views
         private ObservableCollection<Disciplina> _discipline;
         public ObservableCollection<Disciplina> discipline
         {
-            get 
+            get
             {
                 return _discipline;
             }
-            set 
+            set
             {
                 _discipline = value;
             }
@@ -41,6 +41,20 @@ namespace WpfAtletiMVC.Views
             InitializeComponent();
             discipline = new ObservableCollection<Disciplina>(model.getAll());
             this.DataContext = this;
+
+        }
+
+        //comando per la chiusura di una finestra
+        private void Ok_Click(object sender, RoutedEventArgs e)
+        {
+            //con questo comando comandiamo la chiusura di una finestra
+            Close();
+        }
+
+        private void Annulla_Click(object sender, RoutedEventArgs e)
+        {
+            //con questo comando comandiamo la chiusura di una finestra
+            Close();
         }
     }
 }
